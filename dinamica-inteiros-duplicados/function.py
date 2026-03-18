@@ -13,3 +13,25 @@ def duplicados(num):
         return
         
 duplicados(numeros)
+
+from collections import Counter
+
+
+def duplicados_com_ia(numeros):
+    """Versão otimizada usando Counter - O(n) ao invés de O(n²)."""
+    contagem = Counter(numeros)
+    duplicados = {num: vezes for num, vezes in contagem.items() if vezes > 1}
+
+    if duplicados:
+        print("Há duplicados")
+    else:
+        print("Não há duplicados")
+
+    for num, vezes in contagem.items():
+        print(f"{num}   -  {vezes}")
+
+    return duplicados
+
+
+duplicados_com_ia(numeros)
+
